@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Frank%20Ruhl%20Libre');
+
+:global(.dark) .invert {
+  filter: invert(1)
+}
+
+.fontFR {
+  font-family: 'Frank Ruhl Libre';
+}
+
+.rtl {
+  direction: rtl;
+}

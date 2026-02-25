@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "688e1c12b9506ca45c300ea7"
+  },
+  "address": {
+    "city": "Tel Aviv-Yafo",
+    "houseNumber": "29",
+    "street": "Kanfei Nesharim",
+    "zip": "6485697"
+  },
+  "password": "1fbc4d6c2d1f9d8bb00d99a34bd87d7e122cf174702351ca351f62a6f18132cb",
+  "customer": {
+    "firstName": "Oz",
+    "lastName": "Sabbag"
+  },
+  "email": "Oz.sabbag@gmail.com",
+  "role": "admin"
+}]

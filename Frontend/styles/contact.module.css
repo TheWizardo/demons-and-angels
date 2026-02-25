@@ -1,0 +1,157 @@
+/* Base social button behavior */
+.social {
+  position: relative;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Ensure icon follows text color */
+.social svg {
+  transition: color 0.25s ease;
+}
+
+/* =======================
+   FACEBOOK
+   ======================= */
+.social.facebook:hover {
+  color: white; 
+  border-color: rgba(24, 119, 242, 0.75);
+  background-color: #1877f2;/* Facebook blue */
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.15);
+}
+
+/* =======================
+   EMAIL (Gmail red)
+   ======================= */
+.social.mail:hover {
+  color: #ea4335; /* Gmail red */
+  border-color: #ea4335;
+  background-color: rgba(234, 67, 53, 0.08);
+  box-shadow: 0 0 0 3px rgba(234, 67, 53, 0.15);
+}
+
+/* =======================
+   INSTAGRAM
+   ======================= */
+.social.instagram:hover {
+  color: white;
+  border-color: transparent;
+  background:
+    linear-gradient(
+      45deg,
+      #feda75,
+      #fa7e1e,
+      #d62976,
+      #962fbf,
+      #4f5bd5
+    );
+  box-shadow: 0 0 0 3px rgba(214, 41, 118, 0.25);
+}
+
+/* Make sure icon stays visible on gradient */
+.social.instagram:hover svg {
+  color: white;
+}
+
+/* =======================
+   SPOTIFY
+   ======================= */
+.social.spotify:hover {
+  color: #0f0f0f; /* Spotify black */
+  border-color: #1db954;
+  background-color: #1db954; /* Spotify green */
+  box-shadow:
+    0 0 0 3px rgba(29, 185, 84, 0.25),
+    0 0 18px rgba(29, 185, 84, 0.35);
+}
+
+/* =======================
+   APPLE MUSIC
+   ======================= */
+.social.appleMusic:hover {
+  color: white;
+  border-color: transparent;
+  background: linear-gradient(
+    135deg,
+    #fa233b,
+    #fb5c74,
+    #fc8ea6
+  );
+  box-shadow: 0 0 0 3px rgba(250, 35, 59, 0.25);
+}
+
+/* =======================
+   TIKTOK
+   ======================= */
+.social.tiktok:hover {
+  color: white;
+  border-color: transparent;
+  background: linear-gradient(
+    135deg,
+    #25f4ee,
+    #000000,
+    #fe2c55
+  );
+  box-shadow: 0 0 0 3px rgba(254, 44, 85, 0.25);
+}
+
+/* =======================
+   YOUTUBE
+   ======================= */
+.social.youtube:hover {
+  color: white;
+  border-color: #ff0000;
+  background-color: #ff0000;
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.18);
+}
+
+/* =======================
+   X (TWITTER)
+   ======================= */
+.social.x:hover {
+  color: #000000;
+  border-color: #000000;
+  background-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode fix for X */
+.dark .social.x:hover {
+  color: white;
+  border-color: white;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+/* =======================
+   REDDIT
+   ======================= */
+.social.reddit:hover {
+  color: white;
+  border-color: #ff4500;
+  background-color: #ff4500;
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.18);
+}
+
+/* =======================
+   SNAPCHAT
+   ======================= */
+.social.snapchat:hover {
+  color: #000000;
+  border-color: #fffc00;
+  background-color: #fffc00;
+  box-shadow: 0 0 0 3px rgba(255, 252, 0, 0.35);
+}
+
+/* =======================
+   WHATSAPP
+   ======================= */
+.social.whatsapp:hover {
+  color: white;
+  border-color: #25d366;
+  background-color: #25d366;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}

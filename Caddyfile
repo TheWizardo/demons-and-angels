@@ -1,0 +1,8 @@
+# Caddyfile
+demonsandangels.co.il {
+  handle_path /api/* {
+    reverse_proxy backend:4272
+  }
+
+  reverse_proxy frontend:3000
+}

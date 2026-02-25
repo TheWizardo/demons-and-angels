@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "699a031fa6e3a4c9b6c5d348"
+  },
+  "max_physical": 5,
+  "international_phone": "+972527208555",
+  "email": "Books.by.oss@gmail.com",
+  "showBanner": true,
+  "banner_message": "ברוכים הבאים לאתר החדש!",
+  "updatedAt": {
+    "$date": "2026-02-22T11:15:16.504Z"
+  }
+}]
