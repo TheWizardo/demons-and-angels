@@ -20,7 +20,7 @@ dal.connect();
 const server = express();
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://demonsandangles.co.il",
+  "https://demonsandangels.co.il",
 ];
 
 server.use(

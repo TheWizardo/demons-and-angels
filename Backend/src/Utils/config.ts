@@ -6,7 +6,7 @@ class Config {
     public port = +process.env.PORT || 4272;
 
     private mongoDBName = process.env.MONGO_DB_NAME || "DemonsAndAngels";
-    public dbURI = `${process.env.MONGO_URI}/${this.mongoDBName}` || `mongodb://127.0.0.1:27017/${this.mongoDBName}`;
+    public dbURI = `${process.env.MONGO_URI}${this.mongoDBName}` || `mongodb://127.0.0.1:27017/${this.mongoDBName}`;
     public imagesFolder = path.resolve(__dirname, "..", "Assets", "images");
 
     public publicKey =  path.resolve(__dirname, "..", "Assets", "Key", "publicKey.pem");
