@@ -6,7 +6,7 @@ services:
       - "27017"
     volumes:
       - mongo_data:/data/db
-      - ./mongo_dump:/docker-entrypoint-initdb.d:ro
+      - ./Backend/mongo_dump:/docker-entrypoint-initdb.d:ro
     command: ["--bind_ip_all"]
     environment: 
       MONGO_DB: ${MONGO_DB_NAME}
@@ -18,8 +18,6 @@ services:
 
   backend:
     build: ./Backend
-    env_file:
-      - ./Backend/.env
     container_name: express-backend
     restart: unless-stopped
     expose:
@@ -36,8 +34,6 @@ services:
 
   frontend:
     build: ./Frontend
-    env_file:
-      - ./Frontend/.env
     container_name: next-frontend
     restart: unless-stopped
     expose:
