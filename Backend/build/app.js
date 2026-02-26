@@ -25,6 +25,7 @@ var server = (0, express_1.default)();
 var allowedOrigins = [
     "http://localhost:3000",
     "https://demonsandangels.co.il",
+    "https://www.demonsandangels.co.il"
 ];
 server.use((0, cors_1.default)({
     origin: function (origin, cb) {

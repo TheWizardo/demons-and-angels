@@ -21,6 +21,7 @@ const server = express();
 const allowedOrigins = [
   "http://localhost:3000",
   "https://demonsandangels.co.il",
+  "https://www.demonsandangels.co.il"
 ];
 
 server.use(

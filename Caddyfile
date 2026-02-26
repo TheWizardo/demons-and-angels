@@ -3,6 +3,6 @@ api.demonsandangels.co.il {
   reverse_proxy backend:4272
 }
 
-demonsandangels.co.il {
+demonsandangels.co.il, www.demonsandangels.co.il {
   reverse_proxy frontend:3000
 }
