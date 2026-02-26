@@ -23,7 +23,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^20.11.20",
-    "axios": "^1.7.4",
+    "axios": "^1.13.5",
     "cors": "^2.8.5",
     "express": "^4.22.1",
     "express-fileupload": "^1.5.2",
