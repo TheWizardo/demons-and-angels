@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Alef, Courier_Prime } from "next/font/google"
+import { Alef } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -14,19 +14,27 @@ const alef = Alef({
   weight: ["400", "700"],
 })
 
-const courierPrime = Courier_Prime({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-})
-
-// TBD
 export const metadata: Metadata = {
   title: "שדים ומלאכים | עוז ש. סבג",
-  description:
-    "גלו את הסודות שהוצפנו במשך אלפי שנים. מסע מרתק דרך רונות נורדיות עתיקות, היירוגליפים המצריים, הכתב הפיניקי והשפה הסומרית.",
-  keywords: ["ספר", "מיסטיקה", "תרבויות עתיקות", "רונות", "היירוגליפים", "פיניקי", "סומרי"],
+  description: "גלו את ספרו של עוז ש. סבג ‒ 'שדים ומלאכים' ותצללו אל סיפורי המיתולוגיה!",
+  keywords: [
+    "ספר",
+    "מיסטיקה",
+    "תרבויות עתיקות",
+    "מלאכים",
+    "שדים",
+    "מיתולוגיה",
+    "כתב סתרים",
+    "פנטזיה",
+    "הרפתקאות",
+    "עוז ש. סבג",
+    "Demons & Angels",
+    "Demons And Angels",
+    "Oz S. Sabbag",
+    "נוער בוגר"
+  ],
   authors: [{ name: 'עוז ש. סבג' }],
-  generator: "v0.app",
+  generator: "TheWizard studio",
   icons: {
     icon: [
       {
