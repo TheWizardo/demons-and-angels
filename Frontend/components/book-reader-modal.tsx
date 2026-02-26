@@ -138,7 +138,7 @@ export function BookReaderModal({ open, onOpenChange }: BookReaderModalProps) {
               </div>
 
               <div className="border-t pt-6 text-center" hidden={currentChapter < chapters.length - 1}>
-                <p className="text-muted-foreground mb-4">רוצים לקרוא עוד?</p>
+                <p dir="rtl" className="text-muted-foreground mb-4">רוצים לקרוא עוד?</p>
                 <Button asChild>
                   <Link href="/store" onClick={() => onOpenChange(false)}>
                     לרכישת הספר המלא
