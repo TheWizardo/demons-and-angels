@@ -17,8 +17,23 @@ import {
 import { getCurrentUserToken, getUserFromToken, logout, isAdmin } from "@/lib/auth"
 import { useRouter } from "next/navigation"
 
-export function Navbar() {
+function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  return <>
+    {/* Theme Toggle */}
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="החלף ערכת נושא"
+    >
+      <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+    </Button>
+  </>
+}
+
+export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [user, setUser] = useState(getUserFromToken(getCurrentUserToken()))
   const router = useRouter()
@@ -45,15 +60,10 @@ export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-1 text-xl font-bold">
-          <img src="/Images/lavender.png" alt="" className="h-7 w-5 object-cover" />
-          <span>שדים ומלאכים</span>
-          <img src="/Images/rose.png" alt="" className="h-7 w-5 object-cover rotate-180" />
-        </Link>
-
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
+          <ThemeToggle />
+          
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -65,15 +75,6 @@ export function Navbar() {
             </Link>
           ))}
 
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label="החלף ערכת נושא"
-          >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          </Button>
 
           {/* {user ? (
             <DropdownMenu>
@@ -102,16 +103,6 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         <div className="flex md:hidden items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label="החלף ערכת נושא"
-          >
-            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          </Button>
-
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="תפריט">
@@ -168,7 +159,16 @@ export function Navbar() {
               </div>
             </SheetContent>
           </Sheet>
+
+          <ThemeToggle />
         </div>
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-1 text-xl font-bold">
+          <img src="/Images/lavender.png" alt="" className="h-7 w-5 object-cover" />
+          <span>שדים ומלאכים</span>
+          <img src="/Images/rose.png" alt="" className="h-7 w-5 object-cover rotate-180" />
+        </Link>
       </div>
     </nav>
   )
