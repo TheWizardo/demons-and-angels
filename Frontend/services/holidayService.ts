@@ -43,8 +43,8 @@ function createMonthComparer<M extends string>(order: readonly M[]) {
 ========================================================= */
 
 const GREGORIAN_ORDER: GregorianMonth[] = [
-  "January","February","March","April","May","June",
-  "July","August","September","October","November","December"
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
 ]
 
 const gregComparer = createMonthComparer(GREGORIAN_ORDER)
@@ -76,9 +76,9 @@ function getGregorianHoliday(date: Date): HolidayDef | undefined {
 ========================================================= */
 
 const HEBREW_ORDER: HebrewMonth[] = [
-  "Nisan","Iyar","Sivan","Tammuz","Av","Elul",
-  "Tishrei","Cheshvan","Kislev","Tevet","Shevat",
-  "Adar","Adar I","Adar II"
+  "Nisan", "Iyar", "Sivan", "Tamuz", "Av", "Elul",
+  "Tishri", "Cheshvan", "Kislev", "Tevet", "Shevat",
+  "Adar", "Adar I", "Adar II"
 ]
 
 const hebComparer = createMonthComparer(HEBREW_ORDER)
@@ -87,22 +87,125 @@ const hebComparer = createMonthComparer(HEBREW_ORDER)
 
 function normalizeHebrewMonth(m: string): HebrewMonth {
   const map: Record<string, HebrewMonth> = {
-    Nisan:"Nisan", Iyar:"Iyar", Iyyar:"Iyar", Sivan:"Sivan",
-    Tammuz:"Tammuz", Av:"Av", Elul:"Elul",
-    Tishrei:"Tishrei", Cheshvan:"Cheshvan", Heshvan:"Cheshvan",
-    Kislev:"Kislev", Tevet:"Tevet",
-    Shevat:"Shevat", Shebat:"Shevat",
-    Adar:"Adar","Adar I":"Adar I","Adar II":"Adar II",
+    Nisan: "Nisan",
+    Iyar: "Iyar",
+    Iyyar: "Iyar",
+    Sivan: "Sivan",
+    Tamuz: "Tamuz",
+    Tammuz: "Tamuz",
+    Av: "Av",
+    Elul: "Elul",
+    Tishrei: "Tishri",
+    Tishri: "Tishri",
+    Cheshvan: "Cheshvan",
+    Heshvan: "Cheshvan",
+    Kislev: "Kislev",
+    Tevet: "Tevet",
+    Shevat: "Shevat",
+    Shebat: "Shevat",
+    Adar: "Adar",
+    "Adar I": "Adar I",
+    "Adar II": "Adar II",
+    "Adar Alef": "Adar I",
+    "Adar Bet": "Adar II",
+    "Adar Rishon": "Adar I",
+    "Adar Sheni": "Adar II",
+    "Adar 1": "Adar I",
+    "Adar 2": "Adar II",
   }
-  return map[m.trim()] ?? (()=>{ throw new Error(`Unknown Hebrew month: ${m}`) })()
+  return map[m.trim()] ?? (() => { throw new Error(`Unknown Hebrew month: ${m}`) })()
 }
 
 const HEBREW_HOLIDAYS: HolidayDef[] = [
   {
     name: "ראש השנה",
     greeting: "שנה טובה ומתוקה! 🍎🍯",
-    startDate: { day: 29, month: "Elul" },
-    endDate: { day: 2, month: "Tishrei" },
+    startDate: { day: 1, month: "Tishri" },
+    endDate: { day: 2, month: "Tishri" },
+  },
+  {
+    name: "יום כיפור",
+    greeting: "גמר חתימה טובה",
+    startDate: { day: 10, month: "Tishri" },
+    endDate: { day: 10, month: "Tishri" },
+  },
+  {
+    name: "סוכות",
+    greeting: "חג סוכות שמח! 🌿",
+    startDate: { day: 15, month: "Tishri" },
+    endDate: { day: 21, month: "Tishri" }, // Israel (diaspora ends 22)
+  },
+  {
+    name: "שמיני עצרת / שמחת תורה",
+    greeting: "שמחת תורה שמח! 📜",
+    startDate: { day: 22, month: "Tishri" },
+    endDate: { day: 22, month: "Tishri" }, // Israel
+  },
+  {
+    name: "יום הזיכרון לחללי מלחמת חרבות ברזל",
+    greeting: "יזכור🕯️🎗️",
+    startDate: { day: 24, month: "Tishri" },
+    endDate: { day: 24, month: "Tishri" }, // Israel
+  },
+  {
+    name: "חנוכה",
+    greeting: "חג חנוכה שמח! 🕎",
+    startDate: { day: 25, month: "Kislev" },
+    endDate: { day: 2, month: "Tevet" },
+  },
+  {
+    name: "ט\"ו בשבט",
+    greeting: "חג האילנות שמח! 🌳",
+    startDate: { day: 15, month: "Shevat" },
+    endDate: { day: 15, month: "Shevat" },
+  },
+  {
+    name: "פורים",
+    greeting: "פורים שמח! 🎭",
+    startDate: { day: 14, month: "Adar" },
+    endDate: { day: 14, month: "Adar" },
+  },
+  {
+    name: "פורים",
+    greeting: "פורים שמח! 🎭",
+    startDate: { day: 14, month: "Adar II" },
+    endDate: { day: 14, month: "Adar II" },
+  },
+  {
+    name: "פסח",
+    greeting: "חג פסח כשר ושמח! 🍷",
+    startDate: { day: 15, month: "Nisan" },
+    endDate: { day: 21, month: "Nisan" }, // Israel (diaspora ends 22)
+  },
+  {
+    name: "יום הזיכרון לשואה ולגבורה",
+    greeting: "יזכור🕯️",
+    startDate: { day: 27, month: "Nisan" },
+    endDate: { day: 27, month: "Nisan" },
+  },
+  {
+    name: "יום הזיכרון לחללי מערכות ישראל",
+    greeting: "יהי זכרם ברוך 🇮🇱",
+    startDate: { day: 4, month: "Iyar" },
+    endDate: { day: 4, month: "Iyar" },
+  },
+  {
+    name: "יום העצמאות",
+    greeting: "יום עצמאות שמח! 🇮🇱🎉",
+    startDate: { day: 5, month: "Iyar" },
+    endDate: { day: 5, month: "Iyar" },
+  },
+  {
+    name: "ל\"ג בעומר",
+    greeting: "ל\"ג בעומר שמח! 🔥",
+    startDate: { day: 18, month: "Iyar" },
+    endDate: { day: 18, month: "Iyar" },
+  },
+  {
+    name: "שבועות",
+    greeting: "חג שבועות שמח! 🥛📜",
+    startDate: { day: 6, month: "Sivan" },
+    endDate: { day: 6, month: "Sivan" }, // Israel (diaspora ends 7)
   },
 ]
 
@@ -145,5 +248,5 @@ export function getCurrentHoliday(
 
   // Hebrew has precedence
   return getHebrewHoliday(now, geo)
-      ?? getGregorianHoliday(now)
+    ?? getGregorianHoliday(now)
 }

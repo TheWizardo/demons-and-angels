@@ -5,20 +5,18 @@ import styles from "@/styles/holiday-banner.module.css"
 import { getSunset } from "@/services/sunset-service"
 
 export function HolidayBanner() {
+  const [now, setNow] = useState(new Date());
   const [holiday, setHoliday] = useState(() => getCurrentHoliday(new Date()))
 
+  const nextLocalMidnight = (now: Date) => {
+    const d = new Date(now)
+    d.setHours(24, 0, 0, 0)
+    return d
+  }
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout> | null = null
 
-    const nextLocalMidnight = (now: Date) => {
-      const d = new Date(now)
-      d.setHours(24, 0, 0, 0)
-      return d
-    }
-
     const scheduleNextBoundaryUpdate = () => {
-      const now = new Date()
-
       // candidate #1: next midnight
       const midnight = nextLocalMidnight(now)
 
@@ -34,11 +32,12 @@ export function HolidayBanner() {
 
       // tiny buffer so we're safely past the boundary
       const delayMs = Math.max(0, next.getTime() - now.getTime() + 100)
+      console.info(`Scheduling next holiday check at ${next} (in ${delayMs}ms)`)
 
       timeoutId = setTimeout(() => {
-        const newHoliday = getCurrentHoliday(new Date())
-        console.log("Boundary update:", next.toString(), "holiday:", newHoliday)
+        const newHoliday = getCurrentHoliday(next)
         setHoliday(newHoliday)
+        setNow(next)
         scheduleNextBoundaryUpdate()
       }, delayMs)
     }
@@ -48,7 +47,7 @@ export function HolidayBanner() {
     return () => {
       if (timeoutId) clearTimeout(timeoutId)
     }
-  }, [])
+  }, [now])
 
   if (!holiday) return null
 

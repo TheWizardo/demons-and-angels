@@ -1,6 +1,6 @@
 export type HebrewMonth =
-  | "Nisan" | "Iyar" | "Sivan" | "Tammuz" | "Av" | "Elul"
-  | "Tishrei" | "Cheshvan" | "Kislev" | "Tevet" | "Shevat"
+  | "Nisan" | "Iyar" | "Sivan" | "Tamuz" | "Av" | "Elul"
+  | "Tishri" | "Cheshvan" | "Kislev" | "Tevet" | "Shevat"
   | "Adar" | "Adar I" | "Adar II"
 
 export type HebrewDayMonth = { day: number; month: HebrewMonth }
