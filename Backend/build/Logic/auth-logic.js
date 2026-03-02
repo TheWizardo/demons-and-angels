@@ -53,7 +53,7 @@ function login(creds) {
                     if (error)
                         throw new errors_models_1.ValidationError(error, "AuthLogic-Login");
                     creds.password = encryptionService_1.default.sha256(creds.password);
-                    return [4 /*yield*/, user_model_1.UserModel.findOne({ email: creds.email, password: creds.password })];
+                    return [4 /*yield*/, user_model_1.UserModel.findOne({ email: creds.email.toLowerCase(), password: creds.password })];
                 case 1:
                     user = _a.sent();
                     if (!user)

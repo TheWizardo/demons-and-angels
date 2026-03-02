@@ -3,6 +3,7 @@
         "target": "ES5",
         "esModuleInterop": true,
         "outDir": "build",
-        "lib": ["es2021"]
+        "lib": ["es2021"],
+        "strictNullChecks": false
     }
 }
