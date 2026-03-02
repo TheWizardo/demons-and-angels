@@ -11,7 +11,7 @@ async function login(creds: CredentialsModel): Promise<string> {
     if (error) throw new ValidationError(error, "AuthLogic-Login");
 
     creds.password = encryptionService.sha256(creds.password);
-    const user = await UserModel.findOne({email: creds.email, password: creds.password});
+    const user = await UserModel.findOne({email: creds.email.toLowerCase(), password: creds.password});
     if (!user) throw new UnauthorizedError("Incorrect email or password", "AuthLogic-Login");
     // generating token
     user.password = undefined;
