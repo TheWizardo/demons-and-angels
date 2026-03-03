@@ -18,10 +18,10 @@ export default function Home() {
       <HolidayBanner />
 
       {/* Hero Section - Book Block */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <h1 className="text-3xl md:text-3xl font-bold mb-6 text-balance leading-tight">
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-24">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="order-2 md:order-1 max-w-xl mx-auto">
+            <h1 className="text-3xl font-bold mb-6 leading-tight">
               "אם הייתה לכם אפשרות להרוג את האדם הכי רשע בעולם, הייתם עושים את זה?"
             </h1>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
@@ -43,11 +43,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 flex justify-center md:justify-end">
             <img
               src="/Images/Covers/cover.webp"
               alt="כריכת הספר"
-              className="rounded-lg shadow-2xl w-full max-w-md mx-auto"
+              className="rounded-lg shadow-2xl w-full max-w-sm lg:max-w-md"
             />
           </div>
         </div>

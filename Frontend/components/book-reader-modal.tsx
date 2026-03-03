@@ -131,7 +131,7 @@ export function BookReaderModal({ open, onOpenChange }: BookReaderModalProps) {
                 />
               </div>
 
-              <div className="prose prose-lg dark:prose-invert max-w-none text-right leading-relaxed">
+              <div className="prose prose-lg dark:prose-invert max-w-none text-justify leading-relaxed">
                 <div className={`whitespace-pre-line text-lg leading-loose ${styles.rtl} ${styles.fontFR}`}>
                   {currentPageData.content}
                 </div>

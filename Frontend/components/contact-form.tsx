@@ -111,7 +111,7 @@ export function ContactForm() {
               onChange={(e) => setFormData({ ...formData, reply_to: e.target.value })}
               placeholder="example@email.com"
               aria-invalid={!!errors.reply_to}
-              className={errors.reply_to ? "border-destructive" : ""}
+              className={`ltr ${errors.reply_to ? "border-destructive" : ""}`}
             />
           </div>
 
