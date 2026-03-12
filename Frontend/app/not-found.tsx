@@ -20,6 +20,8 @@ export default function NotFound() {
       <img
         src="/Images/what-huh.gif"
         alt="מה?"
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="space-y-3">

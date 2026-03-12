@@ -45,6 +45,7 @@ export default function Home() {
 
           <div className="order-1 md:order-2 flex justify-center md:justify-end">
             <img
+              fetchPriority="high"
               src="/Images/Covers/cover.webp"
               alt="כריכת הספר"
               className="rounded-lg shadow-2xl w-full max-w-sm lg:max-w-md"

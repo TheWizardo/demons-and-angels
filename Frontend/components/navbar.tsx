@@ -165,9 +165,9 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1 text-xl font-bold">
-          <img src="/Images/lavender.png" alt="" className="h-7 w-5 object-cover" />
+          <img fetchPriority="high" src="/Images/lavender.png" alt="" className="h-7 w-5 object-cover" />
           <span>שדים ומלאכים</span>
-          <img src="/Images/rose.png" alt="" className="h-7 w-5 object-cover rotate-180" />
+          <img fetchPriority="high" src="/Images/rose.png" alt="" className="h-7 w-5 object-cover rotate-180" />
         </Link>
       </div>
     </nav>
