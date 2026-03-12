@@ -72,6 +72,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning>
+      <head >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Book",
+              name: "שדים ומלאכים",
+              "alternateName": "Demons And Angels",
+              author: {
+                "@type": "Person",
+                name: "עוז ש. סבג",
+                "alternateName": "Oz S. Sabbag"
+              },
+              inLanguage: "he",
+              genre: "Fantasy",
+              url: "https://demonsandangels.co.il",
+              publisher: {
+                "@type": "Organization",
+                name: "TheWizard studio",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className={`${alef.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SiteBanner />
