@@ -2,6 +2,11 @@ import { ContactForm } from "@/components/contact-form"
 import { Facebook, Instagram, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import styles from "@/styles/contact.module.css"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "צור קשר",
+}
 
 export default function ContactPage() {
   return (

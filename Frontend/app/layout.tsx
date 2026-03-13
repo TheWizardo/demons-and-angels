@@ -15,8 +15,12 @@ const alef = Alef({
 })
 
 export const metadata: Metadata = {
-  title: "שדים ומלאכים | עוז ש. סבג",
-  description: "גלו את ספרו של עוז ש. סבג ‒ 'שדים ומלאכים' ותצללו אל סיפורי המיתולוגיה!",
+  metadataBase: new URL("https://demonsandangels.co.il"),
+  title: {
+    default: "שדים ומלאכים | עוז ש. סבג",
+    template: "%s | שדים ומלאכים",
+  },
+  description: "ספרו של עוז ש. סבג, 'שדים ומלאכים' – רומן פנטזיה מותח העוסק בטוב, ברע, בפנקייקים, ובבחירות משנות גורל!",
   keywords: [
     "ספר",
     "מיסטיקה",
@@ -29,7 +33,7 @@ export const metadata: Metadata = {
     "הרפתקאות",
     "עוז ש. סבג",
     "Demons & Angels",
-    "Demons And Angels",
+    "Demons and Angels",
     "Oz S. Sabbag",
     "נוער בוגר"
   ],
@@ -51,6 +55,23 @@ export const metadata: Metadata = {
       },
     ],
     apple: "/apple-icon.png",
+  },
+  openGraph: {
+    title: "שדים ומלאכים | עוז ש. סבג",
+    description:
+      "ספרו של עוז ש. סבג, 'שדים ומלאכים' – רומן פנטזיה מותח העוסק בטוב וברע.",
+    url: "https://demonsandangels.co.il",
+    siteName: "שדים ומלאכים",
+    locale: "he_IL",
+    type: "book",
+    images: [
+      {
+        url: "/Images/Covers/book-cover.png",
+        width: 578,
+        height: 830,
+        alt: "כריכת הספר שדים ומלאכים מאת עוז ש. סבג",
+      },
+    ],
   },
 }
 
@@ -80,11 +101,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Book",
               name: "שדים ומלאכים",
-              "alternateName": "Demons And Angels",
+              alternateName: "Demons and Angels",
+              image: "https://demonsandangels.co.il/Images/Covers/book-cover.png",
               author: {
                 "@type": "Person",
                 name: "עוז ש. סבג",
-                "alternateName": "Oz S. Sabbag"
+                alternateName: "Oz S. Sabbag",
               },
               inLanguage: "he",
               genre: "Fantasy",

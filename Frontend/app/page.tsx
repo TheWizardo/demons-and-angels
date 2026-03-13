@@ -7,6 +7,7 @@ import { HolidayBanner } from "@/components/holiday-banner"
 import { BookReaderModal } from "@/components/book-reader-modal"
 import Link from "next/link"
 import styles from '@/styles/cypher.module.css'
+import Image from "next/image"
 
 export default function Home() {
   const [readerOpen, setReaderOpen] = useState(false)
@@ -44,7 +45,7 @@ export default function Home() {
           </div>
 
           <div className="order-1 md:order-2 flex justify-center md:justify-end">
-            <img
+            <Image
               fetchPriority="high"
               src="/Images/Covers/cover.webp"
               alt="כריכת הספר"
