@@ -17,7 +17,7 @@ const alef = Alef({
 export const metadata: Metadata = {
   metadataBase: new URL("https://demonsandangels.co.il"),
   title: {
-    default: "שדים ומלאכים | עוז ש. סבג",
+    default: "עוז ש. סבג | שדים ומלאכים",
     template: "%s | שדים ומלאכים",
   },
   description: "ספרו של עוז ש. סבג, 'שדים ומלאכים' – רומן פנטזיה מותח העוסק בטוב, ברע, בפנקייקים, ובבחירות משנות גורל!",
@@ -58,18 +58,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "שדים ומלאכים | עוז ש. סבג",
-    description:
-      "ספרו של עוז ש. סבג, 'שדים ומלאכים' – רומן פנטזיה מותח העוסק בטוב וברע.",
+    description: "ספרו של עוז ש. סבג, 'שדים ומלאכים' – רומן פנטזיה מותח העוסק בטוב, ברע, בפנקייקים, ובבחירות משנות גורל!",
     url: "https://demonsandangels.co.il",
     siteName: "שדים ומלאכים",
     locale: "he_IL",
     type: "book",
     images: [
       {
-        url: "/Images/Covers/book-cover.png",
+        url: "https://demonsandangels.co.il/Images/Covers/book-cover.png",
         width: 578,
         height: 830,
-        alt: "כריכת הספר שדים ומלאכים מאת עוז ש. סבג",
+        alt: 'כריכת הספר "שדים ומלאכים" מאת עוז ש. סבג',
       },
     ],
   },
