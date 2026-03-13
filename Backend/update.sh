@@ -1,66 +1,54 @@
 #!/usr/bin/env bash
 
-overwrite="-ow"
-datetime=$(date +"%Y-%m-%d_%H-%M-%S")
+work_dir="demons-and-angels"
 
+datetime=$(date +"%Y-%m-%d_%H-%M-%S")
 mkdir -p logs
-rm -rf backup
-mkdir -p backup
 if [ ! -f "logs/$datetime.log" ]; then
     touch logs/$datetime.log
 fi
 
 now=$(date +"%F %T.%3N")
+echo "Stopping docker"
 echo "[$now] Stopping docker..." >> logs/$datetime.log
-cd DnA-backend
+cd $work_dir
 docker-compose down >> ../logs/$datetime.log 2>&1
+
 cd ..
+now=$(date +"%F %T.%3N")
+echo "Copying out .env file"
+echo "[$now] copying out .env file" >> logs/$datetime.log
+cp $work_dir/.env .env
+
 
 now=$(date +"%F %T.%3N")
-echo "[$now] Backing up data" >> logs/$datetime.log
-cp -r ./DnA-backend/build/Assets/data ./backup
-
-now=$(date +"%F %T.%3N")
+echo "Deleting codebase"
 echo "[$now] Deleting codebase" >> logs/$datetime.log
-rm -rf DnA-backend
+rm -fr $work_dir
 
 now=$(date +"%F %T.%3N")
+echo "Downloading code from git"
 echo "[$now] Downloading code from git" >> logs/$datetime.log
-git clone https://github.com/TheWizardo/DnA-backend.git >> logs/$datetime.log 2>&1
+git clone https://github.com/TheWizardo/$work_dir.git >> logs/$datetime.log 2>&1
 
 now=$(date +"%F %T.%3N")
+echo "Copying in .env file"
+echo "[$now] copying in .env file" >> logs/$datetime.log
+cp .env $work_dir/.env
+
+now=$(date +"%F %T.%3N")
+echo "Deleting TypeScript source"
 echo "[$now] Deleting TypeScript source" >> logs/$datetime.log
-rm -rf DnA-backend/src
+rm -fr $work_dir/Backend/src
 
-# If the first argument is "-ow", then restore the data
-if [ "$1" == "$overwrite" ]; then
-    now=$(date +"%F %T.%3N")
-    echo "[$now] Overwriting data" >> logs/$datetime.log
-else
-    now=$(date +"%F %T.%3N")
-    echo "[$now] Restoring data" >> logs/$datetime.log
-    rm -rf ./DnA-backend/build/Assets/data
-    cp -r ./backup ./DnA-backend/build/Assets/data
-
-fi
-
+cd $work_dir
 now=$(date +"%F %T.%3N")
-echo "[$now] Changing file permissions" >> logs/$datetime.log
-for file in DnA-backend/build/Assets/data/*; do
-    # Check if the file is a regular file
-    if [[ -f "$file" ]]; then
-        # Change permissions to read and write for the user
-        chmod 666 "$file"
-    fi
-done
-ls -l DnA-backend/build/Assets/data >> logs/$datetime.log
-
-cd DnA-backend
-now=$(date +"%F %T.%3N")
+echo "Building docker"
 echo "[$now] Building docker..." >> ../logs/$datetime.log
 docker-compose build >> ../logs/$datetime.log 2>&1
 
 now=$(date +"%F %T.%3N")
+echo "Strting docker"
 echo "[$now] Starting docker..." >> ../logs/$datetime.log
 docker-compose up -d >> ../logs/$datetime.log 2>&1
 
