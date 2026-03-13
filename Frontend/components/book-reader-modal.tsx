@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import Link from "next/link"
 import styles from '@/styles/book-reader-modal.module.css'
+import Image from "next/image"
 
 interface BookReaderModalProps {
   open: boolean
@@ -124,7 +125,7 @@ export function BookReaderModal({ open, onOpenChange }: BookReaderModalProps) {
           <ScrollArea className="h-[60vh] px-6">
             <div className="space-y-6 py-4">
               <div className={`flex justify-center ${styles.invert}`}>
-                <img
+                <Image
                   src="/Images/chapter_divider.webp"
                   alt="איור פרק"
                   className="rounded-lg max-w-full h-auto"

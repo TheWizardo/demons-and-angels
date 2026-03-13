@@ -1,6 +1,7 @@
 import { MapPinOff } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 export default function NotFound() {
   return (
@@ -17,11 +18,10 @@ export default function NotFound() {
           4
         </span>
       </div>
-      <img
+      <Image
         src="/Images/what-huh.gif"
         alt="מה?"
         loading="lazy"
-        decoding="async"
       />
 
       <div className="space-y-3">

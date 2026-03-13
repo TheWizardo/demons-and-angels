@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { getCurrentUserToken, getUserFromToken, logout, isAdmin } from "@/lib/auth"
 import { useRouter } from "next/navigation"
+import Image from "next/image"
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -165,9 +166,9 @@ export function Navbar() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1 text-xl font-bold">
-          <img fetchPriority="high" src="/Images/lavender.png" alt="" className="h-7 w-5 object-cover" />
+          <Image fetchPriority="high" src="/Images/lavender.png" alt="" className="h-7 w-5 object-cover" />
           <span>שדים ומלאכים</span>
-          <img fetchPriority="high" src="/Images/rose.png" alt="" className="h-7 w-5 object-cover rotate-180" />
+          <Image fetchPriority="high" src="/Images/rose.png" alt="" className="h-7 w-5 object-cover rotate-180" />
         </Link>
       </div>
     </nav>
