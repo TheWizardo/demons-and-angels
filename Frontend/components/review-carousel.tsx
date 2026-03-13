@@ -9,8 +9,8 @@ interface CarouselItemData {
   image: string
   href: string
   title: string
-  ignoreAbove?: boolean
-  ignoreBelow?: boolean
+  addQuotationBefore?: boolean
+  addQuotationAfter?: boolean
   description: string
 }
 
@@ -27,16 +27,13 @@ const carouselItems: CarouselItemData[] = [
     href: "https://www.instagram.com/p/C6Jbp3xtwd7/",
     title: "@bookislife_7",
     description:
-      "שילוב של מיתולוגיות/שדים/מלאכים והעולם שלנו.\nהעלילה מרתקת, עם תפנית בסוף-ברמות כאלה שחיפשתי עמודים נוספים כדי באמת לברר אם ככה מסתיים הסיפור של לוק. ספר ממש נחמד"
+      "שילוב של מיתולוגיות/שדים/מלאכים והעולם שלנו.\nהעלילה מרתקת, עם תפנית בסוף-ברמות כאלה שחיפשתי עמודים נוספים כדי באמת לברר אם ככה מסתיים הסיפור של לוק.\n[...]\nלא כל דבר שנראה נוצץ מבחוץ הוא טהור מבפנים✨"
   },
   {
     image: "bein_hashurot.jpg",
     href: "https://www.instagram.com/p/DTYAmYeiJQb",
     title: "@bein_hashurot",
-    ignoreBelow: true,
-    description: `שדים ומלאכים זורם, הכתיבה של הסופר חלקה ומושכת להמשיך לקרוא. סיימתי אותו בשתי ישיבות בלבד!
-היו הרבה מאוד ציטוטים שאהבתי, 
-ממליצה בחום!`
+    description: `שדים ומלאכים זורם, הכתיבה של הסופר חלקה ומושכת להמשיך לקרוא. סיימתי אותו בשתי ישיבות בלבד!\nהיו הרבה מאוד ציטוטים שאהבתי, [...] ממליצה בחום!`
   }
 ]
 
@@ -116,8 +113,10 @@ export function ReviewCarousel() {
 
                   {/* Text on the right */}
                   <div className="space-y-4 order-1 md:order-2">
-                    <h3 className={`text-2xl font-bold text-primary ltr`}>{item.title}</h3>
-                    <p className="text-lg italic leading-relaxed text-muted-foreground whitespace-pre-line">"{item?.ignoreAbove ? "" : "[...] "}{item.description}{item?.ignoreBelow ? "" : " [...]"}"</p>
+                    <a href={item.href} target="_blank">
+                      <h3 className={`text-2xl font-bold text-primary ltr`}>{item.title}</h3>
+                    </a>
+                    <p className="text-lg italic leading-relaxed text-muted-foreground whitespace-pre-line">"{item?.addQuotationBefore ? "[...] " : ""}{item.description}{item?.addQuotationAfter ? " [...]" : ""}"</p>
                   </div>
                 </div>
               </Card>
